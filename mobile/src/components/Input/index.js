@@ -45,7 +45,12 @@ const AppInput = ({
 						type="cnpj"
 						value={value}
 						onChangeText={onChangeText}
-						style={{ paddingLeft: 15, fontSize: 20, color: '#000' }}
+						style={{
+							paddingLeft: 15,
+							fontSize: 20,
+							color: '#000',
+							width: '100%',
+						}}
 						placeholder={placeholder}
 						placeholderTextColor="#707070"
 						keyboardType="numeric"
