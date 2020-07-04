@@ -20,6 +20,7 @@ module.exports = {
 				extensions: ['.jsx', 'js'],
 			},
 		],
+		'no-shadow': 'off',
 		'import/prefer-default-export': 'off',
 	},
 };
