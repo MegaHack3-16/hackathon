@@ -1,18 +1,27 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { connect } from 'react-redux';
+import { CommonActions } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const WelcomeScreen = ({ nomeCompleto, navigation: { navigate } }) => {
+const WelcomeScreen = ({ nomeCompleto, navigation: { dispatch } }) => {
 	const primeiroNome = nomeCompleto.split(' ').slice(0, -1).join(' ');
 
 	const handleSubmit = () => {
-		console.log('Proxima tela');
+		dispatch(
+			CommonActions.reset({
+				index: 0,
+				routes: [{ name: 'InternalApp' }],
+			})
+		);
 	};
 
 	return (
 		<Background>
+			<StatusBar barStyle="light-content" backgroundColor="#00456a" />
+
 			<Container>
 				<Title>Bem-vindo, {primeiroNome}!</Title>
 				<Text>Para começar, clique em continuar</Text>
@@ -28,7 +37,7 @@ const WelcomeScreen = ({ nomeCompleto, navigation: { navigate } }) => {
 WelcomeScreen.propTypes = {
 	nomeCompleto: PropTypes.string.isRequired,
 	navigation: PropTypes.shape({
-		navigate: PropTypes.func.isRequired,
+		dispatch: PropTypes.func.isRequired,
 	}).isRequired,
 };
 

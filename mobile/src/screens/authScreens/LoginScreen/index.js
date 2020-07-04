@@ -30,7 +30,7 @@ const LoginScreen = ({
 			dispatch(
 				CommonActions.reset({
 					index: 0,
-					routes: [{ name: 'IntroApp' }],
+					routes: [{ name: 'WelcomeApp' }],
 				})
 			);
 		}
