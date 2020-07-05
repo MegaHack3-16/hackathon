@@ -1,12 +1,18 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+
 import styled from 'styled-components';
 
 export default () => (
 	<>
-		<StatusBar barStyle="light-content" backgroundColor="#FF6E62" />
-		<Text>hello</Text>
+		<Container>
+			<Text>Infos</Text>
+		</Container>
 	</>
 );
+
+const Container = styled.View`
+	flex: 1;
+	justify-content: center;
+`;
 
 const Text = styled.Text``;

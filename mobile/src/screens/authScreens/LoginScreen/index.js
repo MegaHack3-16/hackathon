@@ -9,6 +9,8 @@ import DropdownAlertCustom from '../../../components/DropdownAlert';
 
 import { doLogin } from '../../../store/actions/auth/functions';
 import {
+	setNomeCompleto,
+	setCNPJ,
 	setEmail,
 	setPassword,
 	setLogado,
@@ -19,6 +21,8 @@ const entrar = require('../../../assets/signIn.png');
 const LoginScreen = ({
 	logado,
 	setLogado,
+	setNomeCompleto,
+	setCNPJ,
 	email,
 	setEmail,
 	password,
@@ -40,7 +44,7 @@ const LoginScreen = ({
 	let notification = useRef(null);
 
 	const handleSubmit = () => {
-		doLogin(setLogado, email, password, notification);
+		doLogin(setLogado, email, password, notification, setNomeCompleto, setCNPJ);
 	};
 
 	const handleSignUp = () => {
@@ -107,6 +111,8 @@ const mapStateToProps = ({ auth: { logado, email, password } }) => ({
 
 const mapDispatchToProps = {
 	setLogado,
+	setNomeCompleto,
+	setCNPJ,
 	setEmail,
 	setPassword,
 };
@@ -114,6 +120,8 @@ const mapDispatchToProps = {
 LoginScreen.propTypes = {
 	email: PropTypes.string,
 	setEmail: PropTypes.func,
+	setNomeCompleto: PropTypes.func.isRequired,
+	setCNPJ: PropTypes.func.isRequired,
 	password: PropTypes.string,
 	setPassword: PropTypes.func,
 	logado: PropTypes.bool,

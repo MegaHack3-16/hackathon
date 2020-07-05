@@ -50,7 +50,7 @@ const LoginScreen = ({
 
 				<Input
 					first
-					textInputValue="Nome Completo"
+					textInputValue="Razão social"
 					value={nomeCompleto}
 					onChangeText={setNomeCompleto}
 					onSubmitEditing={() => {

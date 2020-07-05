@@ -1,25 +1,15 @@
 import React from 'react';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import HomeScreen from '../../screens/InternalScreens/HomeScreen';
-import ProfileScreen from '../../screens/InternalScreens/ProfileScreen';
+import HomeStack from '../../screens/InternalScreens/HomeStack';
+import SignOut from '../../screens/InternalScreens/ProfileStack';
 
-const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 export default () => (
-	<Tab.Navigator
-		tabBarOptions={{
-			activeBackgroundColor: '#FF6E62',
-			activeTintColor: '#f2f2f2',
-			labelStyle: {
-				textAlign: 'center',
-			},
-			keyboardHidesTabBar: true,
-			inactiveTintColor: 'gray',
-		}}
-	>
-		<Tab.Screen name="Home" component={HomeScreen} />
-		<Tab.Screen name="Profile" component={ProfileScreen} />
-	</Tab.Navigator>
+	<Drawer.Navigator>
+		<Drawer.Screen name="Home" component={HomeStack} />
+		<Drawer.Screen name="SignOut" component={SignOut} />
+	</Drawer.Navigator>
 );

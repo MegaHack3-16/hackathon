@@ -4,10 +4,19 @@ import {
 	makeSendEmail,
 } from '../../../api/functionsAPI';
 
-export const doLogin = (setLogado, email, password, notification) => {
+export const doLogin = (
+	setLogado,
+	email,
+	password,
+	notification,
+	setNomeCompleto,
+	setCNPJ
+) => {
 	makeLogin(email, password)
 		.then((resolveProps) => {
 			notification.alertWithType('success', 'Sucesso', 'Usuário logado');
+			setNomeCompleto(resolveProps.users.nomeCompleto);
+			setCNPJ(resolveProps.users.CNPJ);
 			setLogado(resolveProps.logado);
 		})
 		.catch((rejectProps) => {
@@ -70,11 +79,9 @@ export const doSignUp = (
 			switch (rejectProps.error.code) {
 				case 'auth/email-already-in-use':
 					notification.alertWithType('error', 'Erro', 'E-mail já utilizado!');
-
 					break;
 				case 'auth/invalid-email':
 					notification.alertWithType('error', 'Erro', 'E-mail inválido!');
-
 					break;
 				case 'auth/operation-not-allowed':
 					notification.alertWithType(
@@ -82,7 +89,6 @@ export const doSignUp = (
 						'Erro',
 						'Tente novamente mais tarde!'
 					);
-
 					break;
 				case 'auth/weak-password':
 					notification.alertWithType(
@@ -90,7 +96,6 @@ export const doSignUp = (
 						'Erro',
 						'A senha deve ter mais que 6 digitos'
 					);
-
 					break;
 				default:
 					notification.alertWithType(
@@ -98,7 +103,6 @@ export const doSignUp = (
 						'Erro',
 						rejectProps.error.message
 					);
-
 					break;
 			}
 		});

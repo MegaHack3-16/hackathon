@@ -6,8 +6,27 @@ export const makeLogin = (email, password) => {
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then(() => {
-				const resolveProps = { logado: true };
-				resolve(resolveProps);
+				firebase
+					.database()
+					.ref('users')
+					.on('value', (snapshot) => {
+						let users = {};
+
+						const { uid } = firebase.auth().currentUser;
+
+						snapshot.forEach((childItem) => {
+							if (childItem.key === uid) {
+								users = {
+									nomeCompleto: childItem.val().nomeCompleto,
+									CNPJ: childItem.val().CNPJ,
+								};
+							}
+						});
+
+						const resolveProps = { logado: true, users };
+
+						resolve(resolveProps);
+					});
 			})
 			.catch((error) => {
 				const rejectProps = { logado: false, error };
