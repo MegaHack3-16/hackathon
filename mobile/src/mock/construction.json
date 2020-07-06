@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "place": "Sobrado Hortência",
+    "street": "Avenidas da Hortências",
+    "number": 354,
+    "cep": "12345-678",
+    "state": "Porto Alegre",
+    "uf": "RS",
+    "employees": 15,
+    "sanitation": 1593954701
+  },
+  {
+    "id": 2,
+    "place": "Condomínio Monte Belo",
+    "street": "Rua João Alfredo",
+    "number": 92,
+    "cep": "12345-678",
+    "state": "Porto Alegre",
+    "uf": "RS",
+    "employees": 0,
+    "sanitation": 1593954887
+  },
+  {
+    "id": 3,
+    "place": "Sala Comercial João Pessoa",
+    "street": "Avenida João Pessoa",
+    "number": 1103,
+    "cep": "12345-678",
+    "state": "Porto Alegre",
+    "uf": "RS",
+    "employees": 15,
+    "sanitation": 1593954920
+  }
+]

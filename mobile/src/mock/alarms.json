@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Higienizar as mãos",
+    "toggle": true
+  },
+  {
+    "id": 2,
+    "name": "Desinfectar ferramentas",
+    "toggle": true
+  },
+  {
+    "id": 3,
+    "name": "Higienizar EPIs",
+    "toggle": true
+  },
+  {
+    "id": 4,
+    "name": "Higienizar banheiros e Refeitório",
+    "toggle": true
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "type": "Elétrica",
+    "members": 5
+  },
+  {
+    "id": 2,
+    "type": "Civil",
+    "members": 15
+  },
+  {
+    "id": 3,
+    "type": "Marcenaria",
+    "members": 3
+  }
+]

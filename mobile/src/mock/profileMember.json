@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "Joaquim Lopes",
+    "profession": "Eletricista Predial",
+    "temperature": 36.5,
+    "contagion": [
+      {
+        "fever": false,
+        "fatigue": false,
+        "cough": true,
+        "breathe": false,
+        "pain": false
+      }
+    ],
+    "epis": [
+      {
+        "helmetId": 3,
+        "gogglesID": 6,
+        "facialProtectorId": 5
+      }
+    ],
+    "historyUrl": "profile/1/history"
+  }
+]
