@@ -104,7 +104,6 @@ const Container = styled.View`
 
 const InputContainer = styled.View`
 	flex-direction: row;
-	border-color: #707070;
 	background-color: #efefef;
 	border: 3px solid #707070;
 	border-radius: 40px;

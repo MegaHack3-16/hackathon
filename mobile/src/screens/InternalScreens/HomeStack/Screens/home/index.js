@@ -1,55 +1,81 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { StatusBar, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import Header from '../../../../../components/Header';
 
-const Home = ({ nomeCompleto, navigation: { dispatch } }) => {
+import { Item } from '../../../../../components/Item';
+
+const Home = ({
+	nomeCompleto,
+	constructionsList,
+	navigation: { dispatch, navigate },
+}) => {
 	const primeiroNome = nomeCompleto.split(' ').slice(0, -1).join(' ');
 
-	const Obras = [
-		{
-			key: 1,
-			endereco: 'Avenida da Hortência, 354',
-			cidade: 'Porto Alegre - RS',
-			funcionários: '15 funcionários trabalhando',
-			higienizacao: '4 horas atrás',
+	const [selected, setSelected] = React.useState(new Map());
+
+	const onSelect = useCallback(
+		(id) => {
+			const newSelected = new Map(selected);
+			newSelected.set(id, !selected.get(id));
+
+			setSelected(newSelected);
 		},
-	];
+		[selected]
+	);
 
 	return (
 		<>
 			<Container>
 				<Header name={primeiroNome} dispatch={dispatch} />
+				<StatusBar barStyle="light-content" backgroundColor="#00456a" />
 				<ContainerObras>
 					<Text>Minhas Obras</Text>
 					<ContainerButtons>
-						<Button>
+						<Button onPress={() => alert('Devido ao tempo, não fizemos ainda')}>
 							<TextButton>Adicionar Obra</TextButton>
 						</Button>
 
-						<Button laranja>
+						<Button
+							laranja
+							onPress={() => alert('Devido ao tempo, não fizemos ainda')}
+						>
 							<TextButton laranja>Remover Obra</TextButton>
 						</Button>
 					</ContainerButtons>
 				</ContainerObras>
+				<ContainerFlat>
+					<FlatList
+						data={constructionsList}
+						renderItem={({ item }) => (
+							<Item
+								navigate={navigate}
+								data={item}
+								selected={!!selected.get(item.id)}
+								onSelect={onSelect}
+								setSelected={setSelected}
+							/>
+						)}
+						keyExtractor={(item) => item.id}
+						extraData={selected}
+					/>
+				</ContainerFlat>
 			</Container>
 		</>
 	);
 };
 
-Home.propTypes = {
-	nomeCompleto: PropTypes.string.isRequired,
-	navigation: PropTypes.shape({
-		dispatch: PropTypes.func.isRequired,
-	}).isRequired,
-};
+const mapStateToProps = ({
+	auth: { nomeCompleto },
+	internal: { constructionsList },
+}) => ({
+	nomeCompleto,
+	constructionsList,
+});
 
-const mapDispatchToProps = {};
-
-const mapStateToProps = ({ auth: { nomeCompleto } }) => ({ nomeCompleto });
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, {})(Home);
 
 const Container = styled.View`
 	background-color: #f7f7f7;
@@ -59,8 +85,15 @@ const Container = styled.View`
 
 const ContainerObras = styled.View`
 	flex-direction: row;
+	height: 150px;
+	margin-top: 70px;
 	justify-content: center;
 	align-items: center;
+`;
+
+const ContainerFlat = styled.View`
+	flex: 1;
+	justify-content: flex-start;
 `;
 
 const Text = styled.Text`

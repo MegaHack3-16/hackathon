@@ -1,13 +1,22 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { CommonActions } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const WelcomeScreen = ({ nomeCompleto, navigation: { dispatch } }) => {
+import { setConstructionsList } from '../../../store/actions/internal/setTexts';
+import { getConstructionsList } from '../../../store/actions/internal/functions';
+
+const WelcomeScreen = ({
+	nomeCompleto,
+	setConstructionsList,
+	navigation: { dispatch },
+}) => {
 	const primeiroNome = nomeCompleto.split(' ').slice(0, -1).join(' ');
+
+	useEffect(() => getConstructionsList(setConstructionsList), {});
 
 	const handleSubmit = () => {
 		dispatch(
@@ -36,6 +45,7 @@ const WelcomeScreen = ({ nomeCompleto, navigation: { dispatch } }) => {
 
 WelcomeScreen.propTypes = {
 	nomeCompleto: PropTypes.string.isRequired,
+	setConstructionsList: PropTypes.func.isRequired,
 	navigation: PropTypes.shape({
 		dispatch: PropTypes.func.isRequired,
 	}).isRequired,
@@ -45,7 +55,10 @@ const mapStateToProps = ({ auth: { nomeCompleto } }) => ({
 	nomeCompleto,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+	setConstructionsList,
+	getConstructionsList,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(WelcomeScreen);
 

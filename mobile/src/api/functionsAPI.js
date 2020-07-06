@@ -74,3 +74,32 @@ export const makeSendEmail = (email) => {
 			});
 	});
 };
+
+export const checkConstructions = () => {
+	return new Promise((resolve) => {
+		const constructionsList = [];
+
+		firebase
+			.database()
+			.ref('obras')
+			.on('value', (snapshot) => {
+				snapshot.forEach((items) => {
+					constructionsList.push({
+						Estado: items.val().Estado,
+						cep: items.val().cep,
+						funcionarios: items.val().funcionarios,
+						id: items.val().id,
+						local: items.val().local,
+						numero: items.val().numero,
+						rua: items.val().rua,
+						uf: items.val().uf,
+						ultimaHigienizacao: items.val().ultimaHigienizacao,
+						backgroundColor: items.val().backgroundColor,
+						buttonbackGroundColor: items.val().buttonbackGroundColor,
+					});
+				});
+			});
+
+		resolve(constructionsList);
+	});
+};
