@@ -14,20 +14,24 @@
 </p>
 
 > Projeto criado durante o [MegaHack 3.0 ](https://www.megahack.com.br/)realizado pela [Shawee](https://shawee.io/).
-            
-Aplicativo de Gestão Sanitária é voltado para Gestão Sanitária de pequenas e médias construtoras de edifícios residenciais e comerciais. 
 
-##  🎥 Video
+Aplicativo de Gestão Sanitária é voltado para Gestão Sanitária de pequenas e médias construtoras de edifícios residenciais e comerciais.
 
-[Video Pitch]()  
+## 🎥 Video
 
-[Video Demo]()  
+[Video Pitch](https://www.youtube.com/watch?v=2kFvKTyPB04)
 
-##  📱 Mobile
+[Video Demo](https://www.youtube.com/watch?v=9o42o0RPYf0)
+
+## 🌐 Web
+
+[LandingPage](https://hackathon3ags.webflow.io/)
+
+## 📱 Mobile
 
 <p align="center">
-    <img alt="Login" title="Login" src=".github/images/" width="45%" />
-    <img alt="Home" title="Home" src=".github/images/" width="45%" />
+    <img alt="Constructions" title="Constructs" src=".github/img/constructions.png" width="45%" />
+    <img alt="Profile" title="Profile" src=".github/img/profile.png" width="45%" />
 </p>
 
 ## ✒️ Protótipo
@@ -36,7 +40,10 @@ Aplicativo de Gestão Sanitária é voltado para Gestão Sanitária de pequenas 
 
 ## 📝 Documentação
 
+[doc](.github/doc/desafio.pdf)
+
 ## 🚀 Equipe
+
 [Eduarda Torres](https://www.linkedin.com/in/eduarda-torres/)
 
 [José Julio](https://www.linkedin.com/in/josejuliommelazzo/)
