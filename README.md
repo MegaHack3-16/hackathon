@@ -48,6 +48,6 @@ Aplicativo de Gestão Sanitária é voltado para Gestão Sanitária de pequenas 
 
 [José Julio](https://www.linkedin.com/in/josejuliommelazzo/)
 
-[Lucas Vanni](https://www.linkedin.com/in/lucas-vanni-a66181145/)
+[Lucas Vanni](https://www.linkedin.com/in/lucas-v0579/)
 
 [Luiz Pedro](https://www.linkedin.com/in/luizpedrosm/)
